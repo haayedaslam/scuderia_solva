@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carbon tokens · SolvaGreen</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="/app.css">
+</head>
+<!-- Shared nav, toolbar, footer and approval pop-up are added by /app.js. This file holds only the Carbon tokens page. -->
+<body data-page="tokens">
+<main class="wrap page">
+  <section class="head">
+    <div>
+      <div class="eyebrow">SolvaGreen · auto-offset</div>
+      <h1>Carbon tokens</h1>
+      <p>Shifting cuts most emissions; <b>Emission Carbon Tokens</b> (ECTs) cover the rest. After every booked job, SolvaGreen auto-buys enough ECTs to offset what it still emits, pays through SolvaPay, and retires them so they can't be counted twice. <b>1 ECT = 1 kgCO₂e.</b></p>
+    </div>
+    <div class="head-r" id="toolbar"></div>
+  </section>
+
+  <!-- Overview element: holdings at a glance, coverage, and one chip per token -->
+  <section class="card">
+    <div class="card-h">
+      <h2>ECT wallet</h2>
+      <label class="switch" title="Buy ECTs automatically after each booked job">
+        <input type="checkbox" id="autoBuy"><span class="track"></span><span id="autoBuyTxt">Auto-buy on</span>
+      </label>
+    </div>
+    <div class="ect-stats">
+      <div class="stat"><div class="k">ECTs retired</div><div class="v" id="eTokens">0</div><div class="sub2" id="eTokensD">across 0 lots</div></div>
+      <div class="stat"><div class="k">Emissions covered</div><div class="v good" id="eCover">—</div><div class="sub2" id="eCoverD">of what booked jobs still emit</div></div>
+      <div class="stat"><div class="k">Spent on ECTs</div><div class="v" id="eSpent">$0.00</div><div class="sub2" id="eSpentD">counts toward cost of going green</div></div>
+      <div class="stat"><div class="k">Price per ECT</div><div class="v" id="ePrice">—</div><div class="sub2" id="ePriceD">mock market price</div></div>
+    </div>
+    <div class="barline"><span>Coverage</span><span><b id="eCovKg">0.0 kg</b> offset of <span id="eEmitKg">0.0 kg</span> emitted</span></div>
+    <div class="bar g"><i id="eBar" style="width:0"></i></div>
+    <div class="wallet" id="wallet"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-h"><h2>Lots</h2><span class="sub">every purchase, retired on arrival</span></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Lot</th><th>Offsets</th><th>Grid</th><th class="num">ECTs</th><th class="num">kg left after shifting</th><th class="num">Cost</th><th>Serials</th><th>SolvaPay ref</th><th>Status</th></tr></thead>
+      <tbody id="lots"></tbody>
+    </table></div>
+  </section>
+</main>
+<script src="/app.js"></script>
+<script src="/pages/tokens.js"></script>
+</body>
+</html>

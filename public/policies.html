@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spend policies · SolvaGreen</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="/app.css">
+</head>
+<!-- Shared nav, toolbar, footer and approval pop-up are added by /app.js. This file holds only the Spend policies page. -->
+<body data-page="policies">
+<main class="wrap page">
+  <section class="head">
+    <div>
+      <div class="eyebrow">SolvaPay account · pitwall-agent</div>
+      <h1>Spend policies</h1>
+      <p>Two gates decide every payment. <b>SolvaPay</b> enforces your spend limits and approvals; <b>SolvaGreen</b> enforces your carbon cap. Changes apply to the next call the agent makes.</p>
+    </div>
+    <div class="head-r" id="toolbar"></div>
+  </section>
+
+  <div class="cols-2">
+    <section class="card">
+      <div class="card-h"><h2><span class="num-tag">01</span>SolvaPay account</h2><span class="sub" id="company"></span></div>
+      <div class="acct">
+        <div class="paycard">
+          <div><div class="k">Card on file · stays in your account</div><div class="n">•••• 4242</div><div class="k" style="margin-top:6px;opacity:.8;text-transform:none;letter-spacing:0" id="holder"></div></div>
+          <svg><use href="#mark"/></svg>
+        </div>
+        <div class="stat"><div class="k">Held by SolvaPay</div><div class="v">$0</div></div>
+        <div class="stat"><div class="k">Settles over</div><div class="v" style="font-size:15px;padding-top:3px">Stripe · direct</div></div>
+      </div>
+      <div class="agent" style="margin:14px 0 0">
+        <div class="ic">PA</div>
+        <div style="flex:1;min-width:0"><div class="nm">pitwall-agent</div><div class="id" id="agentId"></div></div>
+        <span class="st auto">Active</span>
+      </div>
+      <div class="purpose" style="margin:14px 0 0"><b>Purpose:</b> “Buy GPU-hours, grid-carbon signals and ECT offsets for race-weekend engineering jobs.” Anything that doesn’t fit is refused and goes on your statement.</div>
+    </section>
+
+    <section class="card">
+      <div class="card-h"><h2><span class="num-tag">02</span>Policy</h2></div>
+      <div class="gate-h" style="margin-top:0">Budget gate <span class="tag sp">SolvaPay</span></div>
+      <div class="lim"><label for="pPer">Per call</label><div class="inp"><span>$</span><input id="pPer" type="number" min="0"></div></div>
+      <div class="lim"><label for="pDay">Per day</label><div class="inp"><span>$</span><input id="pDay" type="number" min="0"></div></div>
+      <div class="lim"><label for="pMon">Per month</label><div class="inp"><span>$</span><input id="pMon" type="number" min="0"></div></div>
+      <div class="barline"><span>Today</span><span><b id="dayTxt">$0</b> of <span id="dayCap">$0</span></span></div>
+      <div class="bar"><i id="dayBar" style="width:0"></i></div>
+      <div class="barline"><span>This month</span><span><b id="monTxt">$0</b> of <span id="monCap">$0</span></span></div>
+      <div class="bar"><i id="monBar" style="width:0"></i></div>
+      <div class="managed" id="budgetNote"></div>
+
+      <div class="gate-h">Carbon gate <span class="tag sg">SolvaGreen</span></div>
+      <div class="lim"><label for="pCarb" id="carbLbl">Grid intensity cap</label><div class="inp"><input id="pCarb" type="number" min="0" style="width:70px"><span style="padding:0 9px 0 0">g/kWh</span></div></div>
+      <div class="src"><span>Signal</span><span class="pill" id="srcPill"></span><span class="mono small" id="feeTxt"></span></div>
+      <div class="small muted" id="srcNote"></div>
+
+      <!-- Green-premium gate: caps what going green may cost per day (extra GPU spend + carbon data + ECTs) -->
+      <div class="gate-h">Green-premium gate <span class="tag sg">SolvaGreen</span></div>
+      <div class="lim"><label for="pGreen">Cost of going green, per day</label><div class="inp"><span>$</span><input id="pGreen" type="number" min="0"></div></div>
+      <div class="barline"><span>Used today</span><span><b id="greenTxt">$0</b> of <span id="greenCap">$0</span></span></div>
+      <div class="bar g"><i id="greenBar" style="width:0"></i></div>
+      <div class="managed">Extra GPU spend vs the cheapest option, plus carbon data and <a class="see-all" href="/tokens">ECT offsets</a>. The agent picks the cleanest slot that fits; if none fits, it asks you.</div>
+
+      <div class="rule"><b>Auto-pay</b> only if budget ✓, carbon ✓ <b>and</b> green premium ✓. Otherwise move the job to another region or hour → if nothing passes, <b>ask you first</b>.</div>
+    </section>
+  </div>
+</main>
+<script src="/app.js"></script>
+<script src="/pages/policies.js"></script>
+</body>
+</html>

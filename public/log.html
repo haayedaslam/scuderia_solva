@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call log · SolvaGreen</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="/app.css">
+</head>
+<!-- Shared nav, toolbar, footer and approval pop-up are added by /app.js. This file holds only the Call log page. -->
+<body data-page="log">
+<main class="wrap page">
+  <section class="head">
+    <div>
+      <div class="eyebrow">Live</div>
+      <h1>Call log</h1>
+      <p>Every step, as it happens, tagged by who did it: the <b>agent</b>, the SolvaGreen <b>gateway</b>, or <b>SolvaPay</b>.</p>
+    </div>
+    <div class="head-r" id="toolbar"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-h"><h2>Events</h2><span class="pill live"><span class="dot"></span>Live</span></div>
+    <div id="log"></div>
+  </section>
+</main>
+<script src="/app.js"></script>
+<script src="/pages/log.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Statement · SolvaGreen</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="/app.css">
+</head>
+<!-- Shared nav, toolbar, footer and approval pop-up are added by /app.js. This file holds only the Statement page. -->
+<body data-page="statement">
+<main class="wrap page">
+  <section class="head">
+    <div>
+      <div class="eyebrow">SolvaPay account</div>
+      <h1>Statement</h1>
+      <p>Every yes and every no: each payment, approval and refusal with its grid reading and emissions, and SolvaPay’s reference for the call.</p>
+    </div>
+    <div class="head-r" id="toolbar"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-h"><h2>Transactions</h2><div style="display:flex;gap:8px;align-items:center"><span class="sub" id="stmtSub"></span><button class="btn ghost sm" id="csv">Export CSV</button></div></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Time</th><th>Merchant</th><th>Item</th><th class="num">Amount</th><th class="num">g/kWh</th><th class="num">kgCO₂e</th><th>Policy decision</th><th>SolvaPay ref</th></tr></thead>
+      <tbody id="ledger"></tbody>
+    </table></div>
+  </section>
+</main>
+<script src="/app.js"></script>
+<script src="/pages/statement.js"></script>
+</body>
+</html>

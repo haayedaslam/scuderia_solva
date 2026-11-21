@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job queue · SolvaGreen</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="/app.css">
+</head>
+<!-- Shared nav, toolbar, footer and approval pop-up are added by /app.js. This file holds only the Job queue page. -->
+<body data-page="jobs">
+<main class="wrap page">
+  <section class="head">
+    <div>
+      <div class="eyebrow">pitwall-agent · race-weekend requests</div>
+      <h1>Job queue</h1>
+      <p>The work your agent has been asked to buy. Run one job or all of them; the agent asks the gateway for a carbon-aware quote, then books it through SolvaPay.</p>
+    </div>
+    <div class="head-r" id="toolbar"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-h">
+      <div><h2>Requests</h2><span class="sub" id="jobsSub"></span></div>
+      <!-- Adds varied race-weekend requests (aero CFD, strategy, tyres, telemetry, parts from the factory…) -->
+      <div class="gen">
+        <label for="genCount" class="sub">Generate</label>
+        <select id="genCount"><option>5</option><option selected>10</option><option>20</option></select>
+        <button class="btn sm" id="gen">Generate requests</button>
+      </div>
+    </div>
+    <div class="proc-filter" id="procFilter"></div>
+    <div class="jobs-grid" id="jobs"></div>
+  </section>
+  <p class="small muted" style="margin:0">Follow each step live on the <a class="see-all" href="/log">Call log</a>; payments land on your <a class="see-all" href="/statement">Statement</a>.</p>
+</main>
+<script src="/app.js"></script>
+<script src="/pages/jobs.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · SolvaGreen</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="/app.css">
+</head>
+<!-- Shared nav, toolbar, footer and approval pop-up are added by /app.js. This file holds only the Overview page. -->
+<body data-page="overview">
+<main class="wrap page">
+  <section class="head">
+    <div>
+      <div class="eyebrow">Carbon-metered payments · SolvaPay spending</div>
+      <h1>You set the limits.<br><span>The grid picks the hour.</span></h1>
+      <p>Your agent pays automatically only when the job is <b>within budget</b> and the grid is <b>below your carbon cap</b>. If either check fails, it moves the job to a cleaner region or a later hour, or it asks you first.</p>
+    </div>
+    <div class="head-r" id="toolbar"></div>
+  </section>
+
+  <section class="kpis">
+    <!-- Four benefits, one number each. Filled in by /pages/overview.js from the gateway's KPIs. -->
+    <div class="card kpi"><div class="l">CO₂e avoided</div><div class="v good" id="kAvoided">—</div><div class="d" id="kAvoidedD">vs an agent that only checks budget</div></div>
+    <div class="card kpi"><div class="l">Jobs moved to cleaner grids</div><div class="v" id="kMoved">—</div><div class="d" id="kMovedD">by region or by hour</div></div>
+    <div class="card kpi"><div class="l">Cost of going green</div><div class="v" id="kPremium">—</div><div class="d" id="kPremiumD">incl. ECT offsets</div></div>
+    <div class="card kpi"><div class="l">Paid without asking you</div><div class="v" id="kAuto">—</div><div class="d" id="kAutoD">within budget and under your cap</div></div>
+  </section>
+
+  <section class="card">
+    <div class="card-h"><h2 id="chartTitle">24-hour carbon forecast</h2><span class="sub" id="chartSub"></span></div>
+    <div class="legend" id="legend"></div>
+    <div class="chart-wrap" id="chartWrap"><svg id="chart" viewBox="0 0 760 290" width="100%" role="img" aria-label="Grid carbon intensity forecast by zone"></svg><div id="tip" hidden></div></div>
+    <div class="foot"><span><svg width="12" height="12"><circle cx="6" cy="6" r="5" fill="#141414"/></svg>slot SolvaGreen booked</span><span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="#fff" stroke="#141414" stroke-width="1.5"/></svg>slot a budget-only agent would book</span><span><svg width="18" height="12"><line x1="0" x2="18" y1="6" y2="6" stroke="#141414" stroke-dasharray="4 3"/></svg>your carbon cap</span><span><svg width="12" height="12"><rect width="12" height="12" rx="2" fill="#eef7ee" stroke="#cfe7d3"/></svg>clean zone</span></div>
+  </section>
+
+  <section class="card">
+    <div class="card-h"><h2>Latest on your statement</h2><a class="see-all" href="/statement">Full statement →</a></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Time</th><th>Merchant</th><th>Item</th><th class="num">Amount</th><th class="num">kgCO₂e</th><th>Policy decision</th></tr></thead>
+      <tbody id="recent"></tbody>
+    </table></div>
+  </section>
+</main>
+<script src="/app.js"></script>
+<script src="/pages/overview.js"></script>
+</body>
+</html>

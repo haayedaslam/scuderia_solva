@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emergency freight · SolvaGreen</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="/app.css">
+</head>
+<!-- Shared nav, toolbar, footer and approval pop-up are added by /app.js. This file holds only the Emergency freight page. -->
+<body data-page="emergency">
+<main class="wrap page">
+  <section class="head">
+    <div>
+      <div class="eyebrow">SolvaGreen · act at the moment of decision</div>
+      <h1>Emergency freight</h1>
+      <p>Some emissions can't be avoided: a part that has to fly tonight. SolvaGreen prices them, checks the credits for quality, pays through SolvaPay and retires them <b>before the plane lands</b>.</p>
+    </div>
+    <div class="head-r" id="toolbar"></div>
+  </section>
+
+  <!-- The trigger: the shipment at risk -->
+  <section class="card ship">
+    <div class="ship-l">
+      <div class="ship-tags"><span class="urgent">Urgent</span><span class="tag sp">Air freight only</span><span class="mono small muted" id="shipId"></span></div>
+      <h2 class="ship-item" id="shipItem"></h2>
+      <div class="muted" id="shipReason"></div>
+      <div class="route">
+        <div><div class="code" id="fromCode"></div><div class="small muted" id="fromName"></div></div>
+        <div class="route-line"><span id="aircraft"></span></div>
+        <div><div class="code" id="toCode"></div><div class="small muted" id="toName"></div></div>
+      </div>
+    </div>
+    <div class="ship-r">
+      <div class="deadline"><div class="k">Must land within</div><div class="v" id="deadline"></div></div>
+      <button class="btn big" id="trigger">Trigger emergency offset →</button>
+      <div class="small muted" id="triggerNote">Runs the agent: calculate → Carbonmark check → SolvaPay → certificate</div>
+    </div>
+  </section>
+
+  <!-- Four steps, matching the demo script -->
+  <section class="steps">
+    <div class="step" id="st1"><div class="n">1</div><div class="h">Carbon calculated</div><div class="big" id="s1v">—</div><div class="small muted" id="s1d">waiting for trigger</div></div>
+    <div class="step" id="st2"><div class="n">2</div><div class="h">Carbonmark quality check</div><div class="big" id="s2v">—</div><div class="small muted" id="s2d">registry · vintage · methodology</div></div>
+    <div class="step" id="st3"><div class="n">3</div><div class="h">SolvaPay gate</div><div class="gates" id="s3v"><span class="gate-chip">Budget —</span><span class="gate-chip">Quality —</span></div><div class="small muted" id="s3d">both must pass to auto-execute</div></div>
+    <div class="step" id="st4"><div class="n">4</div><div class="h">Retirement certificate</div><div class="big" id="s4v">—</div><div class="small muted" id="s4d">audit trail, from the payment itself</div></div>
+  </section>
+
+  <div class="cols-em">
+    <section class="card">
+      <div class="card-h"><h2>Carbonmark projects, scored</h2><span class="sub" id="feedSrc">quality bar —</span></div>
+      <div class="tbl"><table class="cands">
+        <thead><tr><th>Project</th><th>Registry</th><th>Type</th><th class="num">Vintage</th><th class="num">$/t</th><th>Score</th><th>Verdict</th></tr></thead>
+        <tbody id="cands"><tr><td colspan="7" class="empty">Trigger the shipment to pull projects from Carbonmark.</td></tr></tbody>
+      </table></div>
+      <details class="calc-d"><summary>How the emissions were calculated</summary><ul id="assumptions"></ul></details>
+    </section>
+
+    <section class="card cert-card">
+      <div class="card-h"><h2>Certificate</h2><span class="sub" id="certStatus">not issued yet</span></div>
+      <div id="cert" class="cert empty-cert">The retirement record appears here the moment the payment settles.</div>
+    </section>
+  </div>
+</main>
+<script src="/app.js"></script>
+<script src="/pages/emergency.js"></script>
+</body>
+</html>

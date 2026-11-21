@@ -1,0 +1,19 @@
+{
+  "name": "solvagreen",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Carbon-gated agent payments: a gateway that checks grid carbon before SolvaPay authorizes the spend.",
+  "type": "module",
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.ts",
+    "dev": "node --watch --env-file-if-exists=.env src/server.ts",
+    "test": "node --test \"test/**/*.test.ts\""
+  },
+  "dependencies": {
+    "@solvapay/agents": "0.1.1",
+    "jose": "6.2.14"
+  }
+}
